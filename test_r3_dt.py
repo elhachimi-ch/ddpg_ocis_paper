@@ -27,50 +27,10 @@ from datetime import datetime
 def main():
     ti = time.time()
     
-    variable = 'temperature_2m'
-    output_dir="era5_land_africa_eto"
     start_date='2011-01-01' 
     end_date='2024-01-01'
     start_date = datetime.strptime(start_date, '%Y-%m-%d')
     end_date = datetime.strptime(end_date, '%Y-%m-%d')
-    #date_str = image.date().format('yyyyMMdd').getInfo()
-    #out_name = f"{variable}_{date_str}.tif"
-    """out_path = os.path.join(output_dir, out_name)
-    if os.path.exists(out_path):
-        print(f"Data already exists, skipping: {output_dir}/{out_name}")"""
-    
-    """data = DataFrame(r"data\r3_dt\field_state_monitoring.csv")
-    data.column_to_date('date')
-    data.reindex_dataframe('date')
-    print(data.get_column('IrrDay')[:datetime.datetime(2016, 2, 6)+datetime.timedelta(1)].sum())"""
-    
-    
-    """csm = CSM(
-        weather_data_path='data/r3_dt/r3_aws_full.csv',
-        irrigation_method='et'
-        )
-    csm.simulate()
-    csm.monitor()"""
-    
-    # 26-01-2016
-    """field = Field(
-        name='R3P2',
-        area=1,
-        sowing_date='11/15',
-        )
-    date = datetime.datetime(2016, 2, 1)
-    
-    
-    print(field.get_ks_of_date(date))"""
-    #print(field.water_needs_till_date(date))
-    #print(field.seasonal_irrigation())
-    #start_date_simulation = field.csm_et.start_date_simulation
-    #sowing_date = field.csm_et.sowing_date
-    #field.field_state_monitoring_data.show()
-    #field.field_state_monitoring_data.select_datetime_range(sowing_date, )
-    
-    
-    #temp_dataframe.export('data/r3_dt/field_state_monitoring.csv')
     
     # 1 Nov
     #sowing_dates_series = np.zeros((32,))
@@ -115,42 +75,6 @@ def main():
     #r3.fitness_sowing_dates_distribution()
     #random_action = np.zeros((32,))
     #r3.step(random_action)
-    """r3.fields.transform_column('fields', 'area', 'area', lambda x: x*1e-4)
-    r3.show()
-    print('okkkkkkkkkkkkkkkkk')
-    
-    # Define the action noise (helps with exploration in continuous action spaces)
-    n_actions = r3.action_space.shape[-1]
-    action_noise = NormalActionNoise(mean=np.zeros(n_actions), sigma=0.1 * np.ones(n_actions))
-
-    # Create the DDPG agent
-    model = DDPG("MlpPolicy", r3, action_noise=action_noise, verbose=1, device='cuda')
-    
-    # Initialize list to store rewards for plotting
-    rewards = []
-
-    # Custom callback function to track rewards during training
-    def custom_callback(_locals, _globals):
-        #print(_locals)
-        episode_reward = _locals['rewards']
-        rewards.append(episode_reward)  # Store the reward for each episode
-        return True
-    
-    # Train the agent
-    model.learn(total_timesteps=1000, callback=custom_callback)
-    
-    # Save the trained model
-    model.save("data/ddpg_irrigation")
-    
-    # Test the trained model
-    obs = r3.reset()
-    rewards_testing = []
-    for _ in range(3):
-        action, _states = model.predict(obs)
-        obs, reward, done, info = r3.step(action)
-        rewards_testing.append(reward)
-        if done:
-            break"""
         
     print(time.time() - ti)
 
